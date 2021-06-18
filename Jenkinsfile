@@ -10,7 +10,7 @@ pipeline {
         stage('Push event to dynatrace'){
             steps{
                 script{
-                    def response = httpRequest url: 'https://lqe18031.live.dynatrace.com/api/v1/events', acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', customHeaders: [[name: 'Authotrrization', value: 'Api-Token dt0c01.YCWYHVCQSA7PK26KQBNX3NDY.KRHSCU6RTQPQRA2S5OTJVCGPWVMYRCQBASPW5PPANWKO7YNHK4K6747T2WAYBTXB']], httpMode: 'POST', requestBody: """{ 
+                    def response = httpRequest url: 'https://lqe18031.live.dynatrace.com/api/v1/events', acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', customHeaders: [[name: 'Authorization', value: 'Api-Token dt0c01.YCWYHVCQSA7PK26KQBNX3NDY.KRHSCU6RTQPQRA2S5OTJVCGPWVMYRCQBASPW5PPANWKO7YNHK4K6747T2WAYBTXB']], httpMode: 'POST', requestBody: """{ 
 						"eventType": "CUSTOM_DEPLOYMENT", 
 						"attachRules": { 
 							"entityIds": [ 
