@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-	stage('Deploy cluster'){
+	stage('Deploy Development cluster'){
             steps{
                 sh './docker-compose.sh'
             }
