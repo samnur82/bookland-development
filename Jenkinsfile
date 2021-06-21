@@ -36,8 +36,8 @@ pipeline {
 						"deploymentVersion":"${BUILD_ID}",
 						"source":"Jenkins",
 						"customProperties":{ 
-							"Image Version" : "${BUILD_ID}"
-							
+							"Image Version" : "${BUILD_ID}",
+							"Pipeline Name" : "${JOB_NAME}"	
 						} 
 					}"""
                     println('Status: '+response.status)
