@@ -6,7 +6,7 @@ pipeline {
 	stage('Get Image Tag'){
 	    steps{
 		sh "echo ${BUILD_ID}"
-		sh "sed  /tag/c tag=${BUILD_ID} .env"	
+		sh "sed  -i /tag/c\\ tag=${BUILD_ID} .env"	
 
 	    }
 
