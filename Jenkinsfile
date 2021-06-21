@@ -32,13 +32,12 @@ pipeline {
 								"tags" : "Dev" 
 							} 
 						}, 
-						"deploymentName":"${JOB_NAME}", 
 						"deploymentProject":"BookLandServices", 
+						"deploymentName":"${JOB_NAME}", 
+						"deploymentVersion":"{BUILD_ID}", 
 						"remediationAction":"http://revertMe", 
-						"ciBackLink":"${BUILD_URL}", 
 						"source":"Jenkins",
 						"customProperties":{ 
-							"Deployment Number": "${BUILD_ID}",
 							"Image Tag Version" : "${BUILD_ID}" 
 						} 
 					}"""
