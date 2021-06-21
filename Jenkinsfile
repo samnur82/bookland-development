@@ -18,11 +18,9 @@ pipeline {
         }
         stage('Push event to dynatrace'){
             steps{
-		sh 'cat token.txt'
 
                 script{
-		    def token = sh(returnStdout:true, script: 'cat token.txt')
-	            echo "$token"
+		    def token = sh(returnStdout:true, script: 'cat token.txt').trim()
                     def response = httpRequest url: 'https://lqe18031.live.dynatrace.com/api/v1/events', acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', customHeaders: [[name: 'Authorization', value: "$token"]], httpMode: 'POST', requestBody: """{ 
 						"eventType": "CUSTOM_DEPLOYMENT", 
 						"attachRules": { 
