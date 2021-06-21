@@ -32,13 +32,12 @@ pipeline {
 								"tags" : "Dev" 
 							} 
 						}, 
-						"deploymentProject":"BookLandServices", 
 						"deploymentName":"${JOB_NAME}", 
 						"deploymentVersion":"${BUILD_ID}", 
-						"remediationAction":"http://revertMe", 
 						"source":"Jenkins",
 						"customProperties":{ 
-							"Image Tag Version" : "${BUILD_ID}" 
+							"Image Version" : "${BUILD_ID}",
+							"Pipeline Name" : "${JOB_NAME} 
 						} 
 					}"""
                     println('Status: '+response.status)
