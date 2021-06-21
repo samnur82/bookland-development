@@ -34,7 +34,7 @@ pipeline {
 						}, 
 						"deploymentProject":"BookLandServices", 
 						"deploymentName":"${JOB_NAME}", 
-						"deploymentVersion":"{BUILD_ID}", 
+						"deploymentVersion":"${BUILD_ID}", 
 						"remediationAction":"http://revertMe", 
 						"source":"Jenkins",
 						"customProperties":{ 
