@@ -18,6 +18,8 @@ pipeline {
         }
         stage('Push event to dynatrace'){
             steps{
+		sh 'cat token.txt'
+
                 script{
 		    def token = sh(returnStdout:true, script: 'cat token.txt')
 	            echo "$token"
