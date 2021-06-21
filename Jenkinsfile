@@ -33,12 +33,11 @@ pipeline {
 							} 
 						}, 
 						"deploymentName":"${JOB_NAME}", 
-						"deploymentVersion":"${BUILD_ID}", 
-						"deploymentProject":"BookLandServices", 
+						"deploymentVersion":"${BUILD_ID}",
 						"source":"Jenkins",
 						"customProperties":{ 
-							"Image Version" : "${BUILD_ID}",
-							"Pipeline Name" : "${JOB_NAME} 
+							"Image Version" : "${BUILD_ID}"
+							
 						} 
 					}"""
                     println('Status: '+response.status)
