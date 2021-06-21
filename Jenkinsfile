@@ -2,14 +2,11 @@ pipeline {
     agent any
 
     stages {
-
 	stage('Get Image Tag'){
 	    steps{
 		sh "echo ${BUILD_ID}"
-		sh "sed  -i /tag/c\\ tag=${BUILD_ID} .env"	
-
+		sh "sed  -i /tag/c\\ tag=${BUILD_ID} .env"
 	    }
-
 	}
 	stage('Deploy Development cluster'){
             steps{
@@ -18,7 +15,6 @@ pipeline {
         }
         stage('Push event to dynatrace'){
             steps{
-
                 script{
 		    def token = sh(returnStdout:true, script: 'cat token.txt').trim()
                     def response = httpRequest url: 'https://lqe18031.live.dynatrace.com/api/v1/events', acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', customHeaders: [[name: 'Authorization', value: "$token"]], httpMode: 'POST', requestBody: """{ 
@@ -37,7 +33,8 @@ pipeline {
 						"source":"Jenkins",
 						"customProperties":{ 
 							"Image Version" : "${BUILD_ID}",
-							"Pipeline Name" : "${JOB_NAME}"	
+							"Pipeline Name" : "${JOB_NAME}",
+							"Deployment Status" : "Success"
 						} 
 					}"""
                     println('Status: '+response.status)
