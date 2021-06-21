@@ -21,6 +21,7 @@ pipeline {
 
                 script{
 		    def token = sh(returnStdout:true, script: 'cat token.txt').trim()
+		    echo "$token"
                     def response = httpRequest url: 'https://lqe18031.live.dynatrace.com/api/v1/events', acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', customHeaders: [[name: 'Authorization', value: "$token"]], httpMode: 'POST', requestBody: """{ 
 						"eventType": "CUSTOM_DEPLOYMENT", 
 						"attachRules": { 
