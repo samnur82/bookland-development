@@ -34,6 +34,7 @@ pipeline {
 						}, 
 						"deploymentName":"${JOB_NAME}", 
 						"deploymentVersion":"${BUILD_ID}", 
+						"deploymentProject":"BookLandServices", 
 						"source":"Jenkins",
 						"customProperties":{ 
 							"Image Version" : "${BUILD_ID}",
