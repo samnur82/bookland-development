@@ -5,11 +5,8 @@ pipeline {
 
 	stage('Get Image Tag'){
 	    steps{
-		scripts{
-			echo "${BUILD_ID}"	
+		sh "echo ${BUILD_ID}"	
 
-		}
-		
 	    }
 
 	}
